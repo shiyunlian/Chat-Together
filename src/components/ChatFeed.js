@@ -7,6 +7,21 @@ const ChatFeed = (props) => {
 
   const chat = chats && chats[activeChat]; // check if the chats exist
 
+  /*
+Chat Object
+id (int) - Unique primary key to identify this chat
+admin (String) - Unique username of the person who created this chat
+title (String) - Optional title of this chat
+created (Datetime) - Date-time of chat creation
+people (Array) - Array of people added to this chat
+   
+Message Object
+id (int) - Unique primary key to identify this message
+sender (String) - Unique username of the person who sent this message
+text (String) - Contents of the message sent
+created (Datetime) - Date-time of message creation
+
+*/
   const renderReadReceipts = (message, isMyMessage) => {
     return chat.people.map((person, index) => {
       person.last_read === message.id && (
@@ -15,8 +30,7 @@ const ChatFeed = (props) => {
           className="read-receipt"
           style={{
             float: isMyMessage ? "right" : "left",
-            backgroundImage:
-              person.person.avatar && `url(${person.person.avatar})`,
+            backgroundImage: person.avatar && `url(${person.avatar})`,
           }}
         ></div>
       );
@@ -46,7 +60,7 @@ const ChatFeed = (props) => {
             className="read-receipts"
             style={{
               marginRight: isMyMessage ? "18px" : "0px",
-              marginLeft: isMyMessage ? "0px" : "18px",
+              marginLeft: isMyMessage ? "0px" : "68px",
             }}
           >
             {renderReadReceipts(message, isMyMessage)}
@@ -63,7 +77,7 @@ const ChatFeed = (props) => {
       <div className="chat-title-container">
         <div className="chat-title">{chat.title}</div>
         <div className="chat-subtitle">
-          {chat.people.map((person) => `${person.person.username}`)}
+          {chat.people.map((person) => `${person.username}`)}
         </div>
       </div>
       {renderMessages()}

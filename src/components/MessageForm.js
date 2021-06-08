@@ -14,7 +14,7 @@ const MessageForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault(); // for every handleSubmit, it is nessary to add this method to prevent a browser refresh once the form submitted
     const text = value.trim(); //remove leading and trailing white spaces
-    if (text.length > 0) sendMessage(creds, chatId, { text });
+    if (text.length > 0) sendMessage(creds, chatId, { text }); // send a new message object into this chat
     setValue(""); // set the message value to be empty after pressing enter key
   };
 
