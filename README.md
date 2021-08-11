@@ -6,10 +6,8 @@ This project uses React and a serverless chat server chatengine.io to create a c
 <img width="1435" alt="Screen Shot 6" src="https://user-images.githubusercontent.com/63085397/121146568-e736ad80-c7f4-11eb-842c-790727499a0b.png">
 
 
-## Available Scripts
+## How to run this project
 
 In the project directory, you can run:
 
-### `npm start`
-
-
+`npm i` to install the required dependencies and `npm start` to run the project. 
